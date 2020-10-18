@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8"/>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+</head>
+<body>
+	<div class="container">
+		<h1><h1>Welcome to Toped Commerce!</h1></h1>
+		<table class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Store Name</th>
+					<th>Location</th>
+					<th>Points</th>
+					<th>Reputation</th>
+					<th>LastOnline</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="storeitem : ${storeitems}">
+					<td th:text="${storeitem.store_name}"></td>
+					<td th:text="${storeitem.location}"></td>
+					<td th:text="${storeitem.points}"></td>
+					<td th:text="${storeitem.reputation}"></td>
+					<td th:text="${storeitem.latest_online}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{'/item/'} "class="btn btn-warning">Kembali</a>
+	</div>
+</body>
+</html>

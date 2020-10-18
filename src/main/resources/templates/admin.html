@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<link
+href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+rel="stylesheet" id="bootstrap-css">
+<script
+src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script
+src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet"
+href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+</head>
+<body>
+	<h1>Welcome to Toped Commerce!</h1>
+<table class="table table-striped table-responsive-md">
+<thead>
+				<tr>
+					<th>Name</th>
+					<th>Stock</th>
+					<th>Price</th>
+					<th>Rating</th>
+					<th>Sold</th>
+					<th>Seen</th>
+					<th>Weight</th>
+					<th>Condition</th>
+					<th>Category</th>
+					<th>Action</th>
+				
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item : ${items}">
+					<td th:text="${item.item_name}"></td>
+					<td th:text="${item.stock}"></td>
+					<td th:text="${item.price}"></td>
+					<td th:text="${item.rating}"></td>
+					<td th:text="${item.sold}"></td>
+					<td th:text="${item.seen}"></td>
+					<td th:text="${item.itemDetail.weight}"></td>
+					<td th:text="${item.itemDetail.condition}"></td>
+					<td th:text="${item.itemDetail.category}"></td>
+					<td>
+				    	<a th:href="@{'/item/showFormUpdate/admin/' + ${item.id}} "class="btn btn-warning">Update</a>
+				    	
+				    </td>
+				   
+				</tr>
+			</tbody>
+		</table>
+</body>
+</html>
